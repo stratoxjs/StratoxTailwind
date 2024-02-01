@@ -1,7 +1,7 @@
 {
   "name": "@wazabii/StratoxTailwind",
   "version": "1.0.0",
-  "description": "JavaScript tailwind CSS plugin.",
+  "description": "The Stratox Tailwind theme is a user-friendly Tailwind CSS plugin.",
   "main": "src/index.js",
   "files": [
     "src/*.js"
