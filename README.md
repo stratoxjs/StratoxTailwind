@@ -20,7 +20,8 @@ module.exports = {
 		extend: {},
 	},
     plugins: [
-        require('@wazabii/stratoxtailwind');
+        require('@wazabii/stratoxtailwind').config({
+        })
     ],
 }
 ```
@@ -62,7 +63,8 @@ module.exports = {
         }
     },
     plugins: [
-        require('@wazabii/stratoxtailwind');
+        require('@wazabii/stratoxtailwind').config({
+        })
     ],
 }
 ```
@@ -77,7 +79,7 @@ module.exports = {
 	    extend: {},
     },
     plugins: [
-        require('../stratoxtailwind/src/index.js').settings({
+        require('@wazabii/stratoxtailwind').config({
 	        fontFamily: ['Helvetica', 'Arial', 'sans-serif'],
         })
     ],
@@ -94,7 +96,7 @@ module.exports = {
 		extend: {},
 	},
     plugins: [
-        require('../stratoxtailwind/src/index.js').settings({
+        require('@wazabii/stratoxtailwind').config({
 	        fontFamily: ['Open Sans', 'Helvetica', 'Arial', 'sans-serif'],
 	        fontFace: [
                 {
