@@ -1,5 +1,5 @@
 {
-  "name": "@wazabii/tailwind",
+  "name": "@wazabii/StratoxTailwind",
   "version": "1.0.0",
   "description": "JavaScript tailwind CSS plugin.",
   "main": "src/index.js",

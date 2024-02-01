@@ -1,11 +1,16 @@
-const plugin = require('tailwindcss/plugin')
 
-export default settings();
+let plugin, error;
+try {
+    plugin = require('tailwindcss/plugin');
+} catch (err) {
+    error = err;
+}
 
+//export default settings();
 
-export function settings(configs) {
+export function config(configs, pluginPackage) {
     const settings = {
-        rounded: '{{borderRadius.2xl}}',
+        rounded: '{{borderRadius.xl}}',
         pad: '{{padding.15}}',
         mb: '{{margin.30}}',
         fontFamily: [], // IF empty array, then it will take the first @font-face item family name!
@@ -108,11 +113,11 @@ export function settings(configs) {
             }
         },
         normalize: {
-            'p,label,li,dt,button, html input[type="button"], input[type="reset"], input[type="submit"]': {
+            'p,label,,li,dt,blockquote,button, html input[type="button"],input[type="reset"],input[type="submit"]': {
                 'font-size': '{{fontSize.base}}',
                 'line-height': '1.5em',
             },
-            'input,textarea,select': {
+            'input,textarea,select,pre,figcaption': {
                 'font-size': '{{fontSize.sm}}',
                 'line-height': '1.3em',
             },
@@ -120,13 +125,34 @@ export function settings(configs) {
                 'font-size': '{{fontSize.xs}}',
                 'line-height': '1.3em',
             },
+            'blockquote,figcaption': {
+                'margin': '{{margin.25}} 0',
+            },
+            'blockquote,pre': {
+                'background-color': "{{colors.bg.light|backgroundColor.slate.100}}",
+            },
+            'pre': {
+                'padding': '{{padding.15}}',
+            },
+            'blockquote': {
+                'border-left': "6px solid {{colors.bg.approve|backgroundColor.green.600}}",
+                'padding': '{{padding.50}} {{padding.30}} {{padding.30}} {{padding.50}}',
+                'position': 'relative'
+            },
+            'blockquote::before': {
+                'content': "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMyIgaGVpZ2h0PSIxOCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDIzIDE4Ij48cGF0aCBmaWxsPSIjNENBMDVEIiBkPSJNMTMuNDMzIDB2Ny4zOTFjMCA1LjcwNCAzLjU3NiA5LjU3IDguNjA5IDEwLjYwOWwuOTUzLTIuMTUxYy0yLjMzLS45MTctMy44MjgtMy42MzgtMy44MjgtNS44NDlIMjNWMGgtOS41NjdaTTAgMHY3LjM5MUMwIDEzLjA5NSAzLjU5MiAxNi45NjIgOC42MjUgMThsLjk1NC0yLjE1MUM3LjI0OCAxNC45MzIgNS43NSAxMi4yMTEgNS43NSAxMGgzLjgxN1YwSDBaIi8+PC9zdmc+')",
+                'position': 'absolute',
+                'left': '20px',
+                'top': '20px',
+                'display': 'block',
+            },
             'p': {
                 'margin': '0 0 {{margin.15}} 0'
             },
             '.ingress,.ingress p': {
                 'font-size': '{{fontSize.xl}}',
             },
-            'label': {
+            'label,figcaption': {
                 'font-weight': 'bold',
                 'display': 'block',
                 'margin-bottom': '{{margin.4}}'
@@ -156,9 +182,13 @@ export function settings(configs) {
                 '.ingress,.ingress p': {
                     'font-size': '{{fontSize.base}}',
                 },
-                'p,label,li,dt,button, html input[type="button"], input[type="reset"], input[type="submit"]': {
+                'p,label,blockquote,li,dt,button, html input[type="button"], input[type="reset"], input[type="submit"]': {
                     'font-size': '{{fontSize.sm}}',
-                }
+                    'line-height': '1.4em',
+                },
+                'blockquote': {
+                    'padding': '{{padding.50}} {{padding.15}} {{padding.20}} {{padding.20}}',
+                },
             }
         },
         bgColors: {
@@ -262,6 +292,12 @@ export function settings(configs) {
     Object.assign(settings, configs);
     let breakPointClasses = {};
 
+    if(typeof pluginPackage === "function") {
+        plugin = pluginPackage;
+    } else {
+        if(error) throw new Error(error);
+    }
+
     function spacing() {
         let i, index = 0, obj = {};
         for(i = 0; i <= 360; i++) {
@@ -296,9 +332,9 @@ export function settings(configs) {
                 'cursor': 'pointer',
                 'display': 'inline-block',
                 'color': 'inherit',
+                'line-height': '1.5em',
                 'font-size': '{{fontSize.sm}}',
-                'padding': '{{padding.10}} {{padding.25}}',
-                //'background-color': settings.bgColors.primary['background-color'],
+                'padding': '{{padding.12}} {{padding.25}}',
                 'border-radius': settings.rounded,
                 'box-sizing': 'border-box',
             },
@@ -359,7 +395,6 @@ export function settings(configs) {
                 '.card': settings.spacing.sm,
             }
         });
-
 
         let baseA = addClass({
             'html': {
