@@ -6,7 +6,7 @@ The Stratox Tailwind theme is an intuitive Tailwind CSS plugin featuring a range
 
 #### 1. Install the package
 ```
-npm install @wazabii/stratoxtailwind --save-dev
+npm install @stratox/tailwind --save-dev
 ```
 
 #### 2. Require the plugin package
