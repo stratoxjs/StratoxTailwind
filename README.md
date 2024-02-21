@@ -10,7 +10,7 @@ npm install @stratox/tailwind --save-dev
 ```
 
 #### 2. Require the plugin package
-Now you just have to require the `require('@wazabii/stratoxtailwind');` plugin to the **tailwind.config.js** file.
+Now you just have to require the `require('@stratox/tailwind');` plugin to the **tailwind.config.js** file.
 
 ```js
 /** @type {import('tailwindcss').Config} */
@@ -20,7 +20,7 @@ module.exports = {
 		extend: {},
 	},
     plugins: [
-        require('@wazabii/stratoxtailwind').config({
+        require('@stratox/tailwind').config({
         })
     ],
 }
@@ -63,7 +63,7 @@ module.exports = {
         }
     },
     plugins: [
-        require('@wazabii/stratoxtailwind').config({
+        require('@stratox/tailwind').config({
         })
     ],
 }
@@ -79,7 +79,7 @@ module.exports = {
 	    extend: {},
     },
     plugins: [
-        require('@wazabii/stratoxtailwind').config({
+        require('@stratox/tailwind').config({
 	        fontFamily: ['Helvetica', 'Arial', 'sans-serif'],
         })
     ],
@@ -96,7 +96,7 @@ module.exports = {
 		extend: {},
 	},
     plugins: [
-        require('@wazabii/stratoxtailwind').config({
+        require('@stratox/tailwind').config({
 	        fontFamily: ['Open Sans', 'Helvetica', 'Arial', 'sans-serif'],
 	        fontFace: [
                 {
