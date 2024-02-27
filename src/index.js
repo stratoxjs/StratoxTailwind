@@ -173,8 +173,8 @@ export function config(configs, pluginPackage) {
             'ol': {
                 'list-style': 'decimal',
             },
-            'nav ul, aside ol': {
-                'list-style': '0',
+            'nav ul,nav ol,aside ul,aside ol': {
+                'list-style': 'none',
                 'padding': '0',
                 'margin': '0',
             },
