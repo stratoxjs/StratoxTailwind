@@ -113,7 +113,7 @@ export function config(configs, pluginPackage) {
             }
         },
         normalize: {
-            'p,label,,li,dt,blockquote,button, html input[type="button"],input[type="reset"],input[type="submit"]': {
+            'p,label,li,dt,blockquote,button, html input[type="button"],input[type="reset"],input[type="submit"]': {
                 'font-size': '{{fontSize.base}}',
                 'line-height': '1.5em',
             },
@@ -732,6 +732,10 @@ export function config(configs, pluginPackage) {
                 for(let i = 0; i < settings.fontFace.length; i++) {
                     if(typeof settings.fontFace?.[i]?.['@font-face'] === "object") {
                         addBase(settings.fontFace[i]);
+                    } else {
+                        addBase({
+                            '@font-face': settings.fontFace[i]
+                        });
                     }
                 }
             }

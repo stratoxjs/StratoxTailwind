@@ -100,28 +100,25 @@ module.exports = {
 	        fontFamily: ['Open Sans', 'Helvetica', 'Arial', 'sans-serif'],
 	        fontFace: [
                 {
-                    '@font-face': {
                         'font-family': '"Open Sans"',
                         'src': 'url("fontface/opensans-bold-webfont.woff2") format("woff2")',
                         'font-weight': 'bold',
-                        'font-style': 'normal'
-                    }
+                        'font-style': 'normal',
+                        'font-display': 'swap'
                 },
                 {
-                    '@font-face': {
                         'font-family': '"Open Sans"',
                         'src': 'url("fontface/opensans-italic-webfont.woff2") format("woff2")',
                         'font-weight': 'normal',
-                        'font-style': 'italic'
-                    }
+                        'font-style': 'italic',
+                        'font-display': 'swap'
                 },
                 {
-                    '@font-face': {
                         'font-family': '"Open Sans"',
                         'src': 'url("fontface/opensans-regular-webfont.woff2") format("woff2")',
                         'font-weight': 'normal',
-                        'font-style': 'normal'
-                    }
+                        'font-style': 'normal',
+                        'font-display': 'swap'
                 }
             ]
         })
