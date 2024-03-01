@@ -7,7 +7,6 @@ try {
 }
 
 //export default settings();
-
 export function config(configs, pluginPackage) {
     const settings = {
         rounded: '{{borderRadius.xl}}',
@@ -130,6 +129,10 @@ export function config(configs, pluginPackage) {
             },
             'blockquote,pre': {
                 'background-color': "{{colors.bg.light|backgroundColor.slate.100}}",
+            },
+            '.scroller,pre': {
+                'overflow': 'auto',
+                '-webkit-overflow-scrolling': 'touch',
             },
             'pre': {
                 'padding': '{{padding.15}}',
@@ -574,40 +577,6 @@ export function config(configs, pluginPackage) {
         });
         
 
-        
-
-
-
-        /*
-        addBase({
-            '@font-face': {
-                'font-family': '"Open Sans"',
-                'src': 'url("fontface/opensans-bold-webfont.woff2") format("woff2")',
-                'font-weight': 'bold',
-                'font-style': 'normal',
-                'font-display': 'swap'
-            }
-        });
-        addBase({
-            '@font-face': {
-                'font-family': '"Open Sans"',
-                'src': 'url("fontface/opensans-italic-webfont.woff2") format("woff2")',
-                'font-weight': 'normal',
-                'font-style': 'italic',
-                'font-display': 'swap'
-            },
-        });
-        addBase({
-            '@font-face': {
-                'font-family': '"Open Sans"',
-                'src': 'url("fontface/opensans-regular-webfont.woff2") format("woff2")',
-                'font-weight': 'normal',
-                'font-style': 'normal',
-                'font-display': 'swap'
-            },
-        });
-
-         */
         buildFontFace();
 
         addBase(baseA);
