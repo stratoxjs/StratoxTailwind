@@ -9,6 +9,12 @@ try {
 //export default settings();
 export function config(configs, pluginPackage) {
     const settings = {
+        // IF the e.g. color in theme bg does not exits in the config/settings bgColors then it will be pollyfilled.
+        updateColorsInOnEmpty: {
+            bg: 'bgColors', 
+            text: 'textColors', 
+            border: 'border'
+        },
         rounded: '{{borderRadius.xl}}',
         pad: '{{padding.15}}',
         mb: '{{margin.30}}',
@@ -164,7 +170,7 @@ export function config(configs, pluginPackage) {
                 'font-weight': 'normal',
             },
             'a': {
-                'color': '{{colors.link|backgroundColor.blue.800}}'
+                'color': '{{colors.text.link|backgroundColor.blue.800}}'
             },
             'ul,ol': {
                 'padding-left': '{{padding.30}}',
@@ -292,9 +298,9 @@ export function config(configs, pluginPackage) {
         }
     }
 
-    Object.assign(settings, configs);
-    let breakPointClasses = {};
+    deepMerge(settings, configs);
 
+    let breakPointClasses = {};
     if(typeof pluginPackage === "function") {
         plugin = pluginPackage;
     } else {
@@ -321,8 +327,28 @@ export function config(configs, pluginPackage) {
         return ['Helvetica', 'Arial', 'sans-serif'];
     }
 
+    function deepMerge(target, source) {
+        for (const key in source) {
+            if (source.hasOwnProperty(key)) {
+                if (source[key] instanceof Object && !Array.isArray(source[key])) {
+                    if (!target[key]) {
+                        Object.assign(target, { [key]: {} });
+                    }
+                    deepMerge(target[key], source[key]);
+                } else {
+                    Object.assign(target, { [key]: source[key] });
+                }
+            }
+        }
+        return target;
+    }
+
     return plugin(function({ addBase, addComponents, addUtilities, theme }) {
         const screens = theme('screens');
+        const colors = theme('colors');
+
+        pollyfillColors();
+
         const components = addClass({
             '.card': settings.spacing.DEFAULT,
             '.rounder': {
@@ -709,6 +735,21 @@ export function config(configs, pluginPackage) {
                 }
             }
         }
+
+        function pollyfillColors() {
+            for (const [key, val] of Object.entries(settings.updateColorsInOnEmpty)) {
+                for (const [name, hex] of Object.entries(colors[key])) {
+                    if(!settings?.[val]?.[name]) {
+                        settings.bgColors[name] = {
+                            'color': "inherit",
+                            'background-color': hex,
+                            'border-color': hex
+                        }
+                    }
+                }
+            }
+        }
+
 
     }, {
         theme: {
