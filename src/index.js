@@ -6,6 +6,7 @@ try {
     error = err;
 }
 
+
 //export default settings();
 export function config(configs, pluginPackage) {
     const settings = {
@@ -328,21 +329,26 @@ export function config(configs, pluginPackage) {
     }
 
     function deepMerge(target, source) {
-        for (const key in source) {
-            if (source.hasOwnProperty(key)) {
-                if (source[key] instanceof Object && !Array.isArray(source[key])) {
-                    if (!target[key]) {
-                        Object.assign(target, { [key]: {} });
-                    }
-                    deepMerge(target[key], source[key]);
-                } else {
-                    Object.assign(target, { [key]: source[key] });
-                }
-            }
+        if (!isObject(target) || !isObject(source)) {
+            return source;
         }
+        Object.keys(source).forEach(key => {
+            const targetValue = target[key];
+            const sourceValue = source[key];
+            if (Array.isArray(targetValue) && Array.isArray(sourceValue)) {
+                target[key] = targetValue.concat(sourceValue);
+            } else if (isObject(targetValue) && isObject(sourceValue)) {
+                target[key] = deepMerge(Object.assign({}, targetValue), sourceValue);
+            } else {
+                target[key] = sourceValue;
+            }
+        });
         return target;
-    }
 
+    }
+    function isObject(target) {
+        return (target && typeof target === 'object');
+    }
     return plugin(function({ addBase, addComponents, addUtilities, theme }) {
         const screens = theme('screens');
         const colors = theme('colors');
@@ -662,9 +668,12 @@ export function config(configs, pluginPackage) {
                         
                     }
                 } else {
-                    classObj[key] = renderMustache(value);
+                    if(value !== false) {
+                        classObj[key] = renderMustache(value);
+                    }
                 }
             }
+
             return classObj;
         }
         
