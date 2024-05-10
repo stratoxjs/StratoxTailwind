@@ -357,7 +357,7 @@ export function config(configs, pluginPackage) {
 
         const components = addClass({
             '.card': settings.spacing.DEFAULT,
-            '.rounder': {
+            '.rounded': {
                 'border-radius': settings.rounded,
             }, 
             '.title': {
@@ -465,13 +465,15 @@ export function config(configs, pluginPackage) {
                 'color': settings.textColors.secondary['color']
             },
             'button, input, select, optgroup, textarea, textarea:focus-visible': {
-                'color': 'inherit',
-                'font': 'inherit',
                 'outline': 'none',
                 'appearance': 'none',
                 'margin': '0',
                 'cursor': 'inherit',
-                'line-height': 'inherit',
+            },
+            'button, input, select, optgroup, textarea': {
+                'color': 'inherit',
+                'font': 'inherit',
+                'line-height': 'inherit'
             },
             'button': {
                 'overflow': 'visible',

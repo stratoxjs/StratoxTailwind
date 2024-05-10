@@ -1,6 +1,11 @@
 
-# Stratox Tailwind CSS Theme
-The Stratox Tailwind theme is an intuitive Tailwind CSS plugin featuring a range of polished UI components, including forms, buttons, containers, and headlines. It simplifies rem unit conversion, equating 1.5rem to 15px, and maintains a consistent CSS structure for ease of use.
+
+# Stratox Tailwind CSS
+Stratox Tailwind is a lightweight design system that makes programming in CSS and HTML enjoyable while optimizing both. It keeps the code minimal by loading only the necessary Tailwind styles. The system includes normalizations, typography, wrappers, forms, cards, spacing classes, and more, all tied to media queries for a seamless, responsive design across all devices.
+
+The Stratox Tailwind design system uses rem units in CSS, just like Tailwind, for scalability. However, it simplifies their usage by converting rem units to an intuitive scale: 2.5 rem equals 25 pixels, and .mb-40 represents 40 pixels. This makes achieving pixel-perfect designs effortless for developers without the need for calculations, ensuring consistency for both developers and designers.
+
+### [See all the elements here](https://wazabii.se/stratox-tailwind/)
 
 ## Installation
 
@@ -17,8 +22,8 @@ Now you just have to require the `require('@stratox/tailwind');` plugin to the *
 module.exports = {
     content: ["./src/**/*.{html,js}"],
     theme: {
-		extend: {},
-	},
+        extend: {},
+    },
     plugins: [
         require('@stratox/tailwind').config({
         })
@@ -76,11 +81,11 @@ Set default font.
 module.exports = {
     content: ["./src/**/*.{html,js}"],
     theme: {
-	    extend: {},
+        extend: {},
     },
     plugins: [
         require('@stratox/tailwind').config({
-	        fontFamily: ['Helvetica', 'Arial', 'sans-serif'],
+            fontFamily: ['Helvetica', 'Arial', 'sans-serif'],
         })
     ],
 }
@@ -93,12 +98,12 @@ Install a custom font with @font-face.
 module.exports = {
     content: ["./src/**/*.{html,js}"],
     theme: {
-		extend: {},
-	},
+        extend: {},
+    },
     plugins: [
         require('@stratox/tailwind').config({
-	        fontFamily: ['Open Sans', 'Helvetica', 'Arial', 'sans-serif'],
-	        fontFace: [
+            fontFamily: ['Open Sans', 'Helvetica', 'Arial', 'sans-serif'],
+            fontFace: [
                 {
                         'font-family': '"Open Sans"',
                         'src': 'url("fontface/opensans-bold-webfont.woff2") format("woff2")',
