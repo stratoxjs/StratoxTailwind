@@ -123,11 +123,11 @@ export function config(configs, pluginPackage) {
                 'font-size': '{{fontSize.base}}',
                 'line-height': '1.5em',
             },
-            'input,textarea,select,pre,figcaption': {
+            'input,textarea,select,pre,figcaption,.small, .small p': {
                 'font-size': '{{fontSize.sm}}',
                 'line-height': '1.3em',
             },
-            '.small, .small p,.legend,td,th': {
+            '.legend,td,th': {
                 'font-size': '{{fontSize.xs}}',
                 'line-height': '1.3em',
             },
@@ -405,6 +405,9 @@ export function config(configs, pluginPackage) {
             '.wrapper.sm,.container.sm': {
                 'max-width': getScreen('sm')
             },
+            '.wrapper.xs,.container.xs': {
+                'max-width': getScreen('xs')
+            },
             '.pad': {
                 'padding': settings.pad,
             },
@@ -444,7 +447,7 @@ export function config(configs, pluginPackage) {
                 'vector-effect': 'non-scaling-stroke'
             },
             '.display-1,.display-2,.headline-1,.headline-2,.headline-3,.headline-4,.headline-5,.headline-6': {
-                "margin": "{{margin.25}} 0 {{margin.4}} 0",
+                "margin": "{{margin.25}} 0 {{margin.8}} 0",
                 "line-height": "1.2em",
                 "font-weight": "800"
             },
@@ -769,7 +772,8 @@ export function config(configs, pluginPackage) {
                 'xl': {'max': '1280px'},
                 'lg': {'max': '1024px'},
                 'md': {'max': '768px'},
-                'sm': {'max': '640px'}
+                'sm': {'max': '640px'},
+                'xs': {'max': '480px'}
             },
             fontSize: {
                 xs: '1.4rem',
