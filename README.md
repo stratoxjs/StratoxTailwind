@@ -74,6 +74,25 @@ module.exports = {
 }
 ```
 
+### Normalize units
+* Rem unit: You can normalize rem units by automatically recalculating them so that 1.5 rem equals 15 px, instead of the default 0.938 rem.
+* Spacing: You can normalize Tailwind spacing by making it more consistent, starting from 1 to 360 for every spacing class, such as `padding-9`, `margin-300`, `gap-15`, and so on.
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+    content: ["./src/**/*.{html,js}"],
+    theme: {
+        extend: {},
+    },
+    plugins: [
+        require('@stratox/tailwind').config({
+            nomralizeRemUnit: true,
+            normalizeSpacing: true
+        })
+    ],
+}
+```
+
 ### Default font
 Set default font.
 ```js

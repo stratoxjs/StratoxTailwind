@@ -6,9 +6,10 @@ try {
     error = err;
 }
 
-
-//export default settings();
 export function config(configs, pluginPackage) {
+    //console.log(configs);
+    //configs.nomralizeRemUnit = true;
+    //configs.normalizeSpacing = true;
     const settings = {
         // IF the e.g. color in theme bg does not exits in the config/settings bgColors then it will be pollyfilled.
         updateColorsInOnEmpty: {
@@ -17,8 +18,8 @@ export function config(configs, pluginPackage) {
             border: 'border'
         },
         rounded: '{{borderRadius.xl}}',
-        pad: '{{padding.15}}',
-        mb: '{{margin.30}}',
+        pad: toRem(1.5) + 'rem',
+        mb: toRem(3) + 'rem',
         fontFamily: [], // IF empty array, then it will take the first @font-face item family name!
         fontFace: [
         ],
@@ -26,17 +27,17 @@ export function config(configs, pluginPackage) {
             '.display-1': {
                 'font-size': '{{fontSize.8xl}}',
                 'line-height': '1.0em',
-                'margin': '0 0 {{margin.15}} 0'
+                'margin': '0 0 ' + toRem(1.5) + 'rem 0'
             },
             '.display-2': {
                 'font-size': '{{fontSize.7xl}}',
                 'line-height': '1.0em',
-                'margin': '0 0 {{margin.15}} 0'
+                'margin': '0 0 ' + toRem(1.5) + 'rem 0'
             },
             '.headline-1': {
                 'font-size': '{{fontSize.6xl}}',
                 'line-height': '1.0em',
-                'margin': '0 0 {{margin.15}} 0'
+                'margin': '0 0 ' + toRem(1.5) + 'rem 0'
             },
             '.headline-2': {
                 'font-size': '{{fontSize.5xl}}',
@@ -132,7 +133,7 @@ export function config(configs, pluginPackage) {
                 'line-height': '1.3em',
             },
             'blockquote,figcaption': {
-                'margin': '{{margin.25}} 0',
+                'margin': toRem(2.5) + 'rem 0',
             },
             'blockquote,pre': {
                 'background-color': "{{colors.bg.light|backgroundColor.slate.100}}",
@@ -142,11 +143,11 @@ export function config(configs, pluginPackage) {
                 '-webkit-overflow-scrolling': 'touch',
             },
             'pre': {
-                'padding': '{{padding.15}}',
+                'padding': toRem(1.5) + 'rem',
             },
             'blockquote': {
                 'border-left': "6px solid {{colors.bg.approve|backgroundColor.green.600}}",
-                'padding': '{{padding.50}} {{padding.30}} {{padding.30}} {{padding.50}}',
+                'padding': '' + toRem(5) + 'rem ' + toRem(3) + 'rem ' + toRem(3) + 'rem ' + toRem(5) + 'rem',
                 'position': 'relative'
             },
             'blockquote::before': {
@@ -157,7 +158,7 @@ export function config(configs, pluginPackage) {
                 'display': 'block',
             },
             'p': {
-                'margin': '0 0 {{margin.15}} 0'
+                'margin': '0 0 ' + toRem(1.5) + 'rem 0'
             },
             '.ingress,.ingress p': {
                 'font-size': '{{fontSize.xl}}',
@@ -165,7 +166,7 @@ export function config(configs, pluginPackage) {
             'label,figcaption': {
                 'font-weight': 'bold',
                 'display': 'block',
-                'margin-bottom': '{{margin.4}}'
+                'margin-bottom': toRem(0.4) + 'rem'
             },
             'label *': {
                 'font-weight': 'normal',
@@ -174,8 +175,8 @@ export function config(configs, pluginPackage) {
                 'color': '{{colors.text.link|backgroundColor.blue.800}}'
             },
             'ul,ol': {
-                'padding-left': '{{padding.30}}',
-                'margin': '{{margin.25}} 0',
+                'padding-left': toRem(3) + 'rem',
+                'margin': toRem(2.5) + 'rem 0',
             },
             'ul': {
                 'list-style': 'disc',
@@ -197,7 +198,7 @@ export function config(configs, pluginPackage) {
                     'line-height': '1.4em',
                 },
                 'blockquote': {
-                    'padding': '{{padding.50}} {{padding.15}} {{padding.20}} {{padding.20}}',
+                    'padding': toRem(5) + 'rem ' + toRem(1.5) + 'rem ' + toRem(2) + 'rem ' + toRem(2) + 'rem',
                 },
             }
         },
@@ -264,40 +265,42 @@ export function config(configs, pluginPackage) {
             error: {
                 'border-color': '{{colors.border.error|backgroundColor.red.800}}'
             }
-        },
-        spacing: {
-            "DEFAULT": [
-                {'padding': '{{padding.100}} {{padding.60}}'},
-                {'padding': '{{padding.60}} {{padding.60}}'},
-                {'padding': '{{padding.50}} {{padding.30}}'},
-                {'padding': '{{padding.30}} {{padding.30}}'},
-            ],
-            "xl": [
-                {'padding': '{{padding.80}} {{padding.50}}'},
-                {'padding': '{{padding.50}} {{padding.50}}'},
-                {'padding': '{{padding.50}} {{padding.30}}'},
-                {'padding': '{{padding.30}} {{padding.30}}'},
-            ],
-            "lg": [
-                {'padding': '{{padding.60}} {{padding.30}}'},
-                {'padding': '{{padding.50}} {{padding.30}}'},
-                {'padding': '{{padding.40}} {{padding.30}}'},
-                {'padding': '{{padding.30}} {{padding.30}}'},
-            ],
-            "md": [
-                {'padding': '{{padding.30}} {{padding.15}}'},
-                {'padding': '{{padding.30}} {{padding.15}}'},
-                {'padding': '{{padding.40}} {{padding.15}}'},
-                {'padding': '{{padding.30}} {{padding.15}}'},
-            ],
-            "sm": [
-                {'padding': '{{padding.30}} {{padding.15}}'},
-                {'padding': '{{padding.30}} {{padding.15}}'},
-                {'padding': '{{padding.30}} {{padding.15}}'},
-                {'padding': '{{padding.30}} {{padding.15}}'},
-            ]
         }
     }
+
+
+    settings.spacing = {
+        "DEFAULT": [
+            {'padding': toRem(10.0) + 'rem ' + toRem(6.0) + "rem"},
+            {'padding': toRem(6.0) + 'rem ' + toRem(6.0) + "rem"},
+            {'padding': toRem(5.0) + 'rem ' + toRem(3.0) + "rem"},
+            {'padding': toRem(3.0) + 'rem ' + toRem(3.0) + "rem"},
+        ],
+        "xl": [
+            {'padding': toRem(8.0) + 'rem ' + toRem(5.0) + "rem"},
+            {'padding': toRem(5.0) + 'rem ' + toRem(5.0) + "rem"},
+            {'padding': toRem(5.0) + 'rem ' + toRem(3.0) + "rem"},
+            {'padding': toRem(3.0) + 'rem ' + toRem(3.0) + "rem"},
+        ],
+        "lg": [
+            {'padding': toRem(6.0) + 'rem ' + toRem(3.0) + "rem"},
+            {'padding': toRem(5.0) + 'rem ' + toRem(3.0) + "rem"},
+            {'padding': toRem(4.0) + 'rem ' + toRem(3.0) + "rem"},
+            {'padding': toRem(3.0) + 'rem ' + toRem(3.0) + "rem"},
+        ],
+        "md": [
+            {'padding': toRem(3.0) + 'rem ' + toRem(1.5) + "rem"},
+            {'padding': toRem(3.0) + 'rem ' + toRem(1.5) + "rem"},
+            {'padding': toRem(4.0) + 'rem ' + toRem(1.5) + "rem"},
+            {'padding': toRem(3.0) + 'rem ' + toRem(1.5) + "rem"},
+        ],
+        "sm": [
+            {'padding': toRem(3.0) + 'rem ' + toRem(1.5) + "rem"},
+            {'padding': toRem(3.0) + 'rem ' + toRem(1.5) + "rem"},
+            {'padding': toRem(3.0) + 'rem ' + toRem(1.5) + "rem"},
+            {'padding': toRem(3.0) + 'rem ' + toRem(1.5) + "rem"},
+        ]
+    };
 
     deepMerge(settings, configs);
 
@@ -308,10 +311,14 @@ export function config(configs, pluginPackage) {
         if(error) throw new Error(error);
     }
 
+    function toRem(unit) {
+        return (typeof configs === "object" && configs?.nomralizeRemUnit) ? unit : (Math.round((unit / 1.6) * 100) / 100);
+    }
+
     function spacing() {
         let i, index = 0, obj = {};
         for(i = 0; i <= 360; i++) {
-            obj[i] = (i/10)+"rem";
+            obj[i] = toRem((i)/10)+"rem";
         }
         return obj;
     }
@@ -349,6 +356,8 @@ export function config(configs, pluginPackage) {
     function isObject(target) {
         return (target && typeof target === 'object');
     }
+
+    const defaultTheme = require('tailwindcss/defaultTheme');
     return plugin(function({ addBase, addComponents, addUtilities, theme }) {
         const screens = theme('screens');
         const colors = theme('colors');
@@ -363,25 +372,26 @@ export function config(configs, pluginPackage) {
             '.title': {
                 'margin-top': '0',
             },
-            '.button': {
+            'buttton, .button': {
+                'width': 'auto',
                 'cursor': 'pointer',
                 'display': 'inline-block',
                 'color': 'inherit',
                 'line-height': '1.5em',
                 'font-size': '{{fontSize.sm}}',
-                'padding': '{{padding.12}} {{padding.25}}',
+                'padding': toRem(1.2) + 'rem ' + toRem(2.5) + 'rem',
                 'border-radius': settings.rounded,
                 'box-sizing': 'border-box',
             },
-            '.button.md': {
-                'padding': '{{padding.8}} {{padding.20}}',
+            'buttton, .button.md': {
+                'padding': toRem(0.8) + 'rem ' + toRem(2) + 'rem',
             },
-            '.button.sm': {
+            'buttton, .button.sm': {
                 'font-size': '{{fontSize.xs}}',
-                'padding': '{{padding.8}} {{padding.20}}',
+                'padding': toRem(0.8) + 'rem ' + toRem(2) + 'rem',
                 'border-radius': '{{borderRadius.full}}',
             },
-            '.button:hover': {
+            'buttton:hover, .button:hover': {
                 'background-image': 'linear-gradient(rgb(0 0 0/10%) 0 0)',
             },
             '.border': settings.border,
@@ -436,10 +446,10 @@ export function config(configs, pluginPackage) {
 
         let baseA = addClass({
             'html': {
-                'font-size': "10px"
+                'font-size': (settings.nomralizeRemUnit ? "10px" : 'inherit')
             },
             'body': {
-                'font-size': '1.8rem',
+                'font-size': toRem(1.8)+'rem',
                 'line-height': '150%',
                 'color': settings.textColors.primary['color']
             },
@@ -447,7 +457,7 @@ export function config(configs, pluginPackage) {
                 'vector-effect': 'non-scaling-stroke'
             },
             '.display-1,.display-2,.headline-1,.headline-2,.headline-3,.headline-4,.headline-5,.headline-6': {
-                "margin": "{{margin.25}} 0 {{margin.8}} 0",
+                "margin": toRem(2.5) + 'rem 0 ' + toRem(0.8) + 'rem 0',
                 "line-height": "1.2em",
                 "font-weight": "800"
             },
@@ -530,7 +540,7 @@ export function config(configs, pluginPackage) {
             'input, button, textarea, select, .inp-placeholder': {
                 'border': '1px solid '+settings.border.primary['border-color'],
                 'width': '{{width.full}}',
-                'padding': '{{padding.15}} {{padding.15}}',
+                'padding': toRem(1.5) + 'rem ' + toRem(1.5) + 'rem',
                 'border-radius': settings.rounded,
                 'background-color': '{{backgroundColor.white}}',
             },
@@ -570,7 +580,7 @@ export function config(configs, pluginPackage) {
             },
             '.group .wa-field-group-btn': {
                 'border-radius': '{{borderRadius.full}}',
-                'padding': '5px',
+                'padding': toRem(0.5) + 'rem',
                 'border': '1px solid '+settings.border.primary['border-color'],
                 'background-color': '{{backgroundColor.white}}',
                 'display': 'none'
@@ -605,11 +615,11 @@ export function config(configs, pluginPackage) {
             },
             'table': {
                 'width': '100%',
-                'margin': '{{margin.25}} 0'
+                'margin': toRem(2.5) + 'rem 0'
             },
             'td,th': {
                 'text-align': 'left',
-                'padding': '{{padding.10}} {{padding.10}}'
+                'padding': toRem(1) + 'rem'
             }
         });
         
@@ -660,9 +670,7 @@ export function config(configs, pluginPackage) {
                         if(sc) {
                             key = getBreakPoint(key);
                             if(breakPointClasses[key] !== undefined) {
-
                                 Object.assign(breakPointClasses[key], addClass(value));
-                                //console.log("wwwwhhh:", addClass(value));
                             } else {
                                 breakPointClasses[key] = addClass(value);
                             }
@@ -776,37 +784,37 @@ export function config(configs, pluginPackage) {
                 'xs': {'max': '480px'}
             },
             fontSize: {
-                xs: '1.4rem',
-                sm: '1.6rem',
-                base: '1.8rem',
-                lg: '2.0rem',
-                xl: '2.2rem',
-                '2xl': '2.4rem',
-                '3xl': '3.0rem',
-                '4xl': '3.6rem',
-                '5xl': '4.8rem',
-                '6xl': '6.0rem',
-                '7xl': '7.2rem',
-                '8xl': '9.6rem',
-                '9xl': '12.8rem',
+                xs: toRem(1.4)+'rem',
+                sm: toRem(1.6)+'rem',
+                base: toRem(1.8)+'rem',
+                lg: toRem(2.0)+'rem',
+                xl: toRem(2.2)+'rem',
+                '2xl': toRem(2.4)+'rem',
+                '3xl': toRem(3.0)+'rem',
+                '4xl': toRem(3.6)+'rem',
+                '5xl': toRem(4.8)+'rem',
+                '6xl': toRem(6)+'rem',
+                '7xl': toRem(7.2)+'rem',
+                '8xl': toRem(9.6)+'rem',
+                '9xl': toRem(12.8)+'rem',
             },
             fontFamily: {
                 sans:  setDefaultFontFamily(),
             },
             maxWidth: {
-                '7xl': '128rem',
-                '6xl': '115.2rem',
-                '5xl': '102.4rem',
-                '4xl': '89.6rem',
-                '3xl': '76.8rem',
-                '2xl': '67.2rem',
-                'xl': '57.6rem',
-                'lg': '51.2rem',
-                'md': '44.8rem',
-                'sm': '38.4rem',
-                'xs': '32rem',
+                '7xl': toRem(128)+'rem',
+                '6xl': toRem(115.2)+'rem',
+                '5xl': toRem(102.4)+'rem',
+                '4xl': toRem(89.6)+'rem',
+                '3xl': toRem(76.8)+'rem',
+                '2xl': toRem(67.2)+'rem',
+                'xl': toRem(57.6)+'rem',
+                'lg': toRem(51.2)+'rem',
+                'md': toRem(44.8)+'rem',
+                'sm': toRem(38.4)+'rem',
+                'xs': toRem(32)+'rem',
             },
-            spacing: spacing()
+            spacing: (typeof configs === "object" && configs?.normalizeSpacing ? spacing() : { ...defaultTheme.spacing })
         },  
     });   
 }
