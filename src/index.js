@@ -189,7 +189,7 @@ export function config(configs, pluginPackage) {
                 'padding': '0',
                 'margin': '0',
             },
-             "lg": {
+            "lg": {
                 '.ingress,.ingress p': {
                     'font-size': '{{fontSize.base}}',
                 },

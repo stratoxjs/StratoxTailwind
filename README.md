@@ -1,9 +1,9 @@
 
 
 # Stratox Tailwind CSS
-Stratox Tailwind is a lightweight design system that makes programming in CSS and HTML enjoyable while optimizing both. It keeps the code minimal by loading only the necessary Tailwind styles. The system includes normalizations, typography, wrappers, forms, cards, spacing classes, and more, all tied to media queries for a seamless, responsive design across all devices.
+Stratox Tailwind is a lightweight design system that makes programming in CSS and HTML enjoyable while optimizing both. It keeps the code minimal by loading only the necessary Tailwind styles and semantical design system classes. The system includes normalizations, typography, wrappers, forms, cards, spacing classes, and more, all tied to media queries for a seamless, responsive design across all devices.
 
-The Stratox Tailwind design system uses rem units in CSS, just like Tailwind, for scalability. However, it simplifies their usage by converting rem units to an intuitive scale: 2.5 rem equals 25 pixels, and .mb-40 represents 40 pixels. This makes achieving pixel-perfect designs effortless for developers without the need for calculations, ensuring consistency for both developers and designers.
+The Stratox Tailwind design system uses rem units in CSS, just like Tailwind, for scalability. However, it simplifies their usage by converting rem units to an intuitive scale: 2.5 rem equals 25 pixels, and .mb-40 represents 40 pixels if **enabled**. This makes achieving pixel-perfect designs effortless for developers without the need for calculations, ensuring consistency for both developers and designers.
 
 ### [See all the elements here](https://wazabii.se/stratox-tailwind/)
 
