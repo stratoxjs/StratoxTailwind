@@ -8,7 +8,7 @@ try {
 
 function config(configs, pluginPackage) {
   //console.log(configs);
-  //configs.nomralizeRemUnit = true;
+  //configs.normalizeRemUnit = true;
   //configs.normalizeSpacing = true;
   const settings = {
     // IF the e.g. color in theme bg does not exits in the config/settings bgColors then it will be pollyfilled.
@@ -22,6 +22,8 @@ function config(configs, pluginPackage) {
     mb: toRem(3) + 'rem',
     fontFamily: [], // IF empty array, then it will take the first @font-face item family name!
     fontFace: [
+    ],
+    googleFont: [
     ],
     headlines: {
       '.display-1': {
@@ -312,7 +314,7 @@ function config(configs, pluginPackage) {
   }
 
   function toRem(unit) {
-    return (typeof configs === "object" && configs?.nomralizeRemUnit) ? unit : (Math.round((unit / 1.6) * 100) / 100);
+    return (typeof configs === "object" && configs?.normalizeRemUnit) ? unit : (Math.round((unit / 1.6) * 100) / 100);
   }
 
   function spacing() {
@@ -372,7 +374,7 @@ function config(configs, pluginPackage) {
       '.title': {
         'margin-top': '0',
       },
-      'buttton, .button': {
+      'button, .button': {
         'width': 'auto',
         'cursor': 'pointer',
         'display': 'inline-block',
@@ -393,6 +395,21 @@ function config(configs, pluginPackage) {
       },
       'buttton:hover, .button:hover': {
         'background-image': 'linear-gradient(rgb(0 0 0/10%) 0 0)',
+      },
+      '.border': {
+        'border': '1px solid '+settings.border.primary['border-color']
+      },
+      '.border-top': {
+        'border-top': '1px solid '+settings.border.primary['border-color']
+      },
+      '.border-bottom,td,th': {
+        'border-bottom': '1px solid '+settings.border.primary['border-color']
+      },
+      '.border-left': {
+        'border-left': '1px solid '+settings.border.primary['border-color']
+      },
+      '.border-right': {
+        'border-right': '1px solid '+settings.border.primary['border-color']
       },
       '.border': settings.border,
       '.bg': settings.bgColors,
@@ -430,52 +447,25 @@ function config(configs, pluginPackage) {
         'align-items': 'center',
         //'justify-content': 'center'
       },
-      'xl': {
-        '.card': settings.spacing.xl,
+      '.group .wa-field-group-btn': {
+        'border-radius': '{{borderRadius.full}}',
+        'padding': toRem(0.5) + 'rem',
+        'border': '1px solid '+settings.border.primary['border-color'],
+        'background-color': '{{backgroundColor.white}}',
+        'display': 'none'
       },
-      'lg': {
-        '.card': settings.spacing.lg,
+      '.group:hover .wa-field-group-btn': {
+        'display': 'block'
       },
-      'md': {
-        '.card': settings.spacing.md,
+      '.wa-field-group-btn:hover': {
+        'color': '{{backgroundColor.white}}',
+        'background-color': settings.bgColors.primary['background-color'],
       },
-      'sm': {
-        '.card': settings.spacing.sm,
-      }
-    });
-
-    let baseA = addClass({
-      'html': {
-        'font-size': (settings.nomralizeRemUnit ? "10px" : 'inherit')
+      '.wa-field-group-btn.before': {
+        'top': '-11px',
       },
-      'body': {
-        'font-size': toRem(1.8)+'rem',
-        'line-height': '150%',
-        'color': settings.textColors.primary['color']
-      },
-      'svg, svg path, svg circle, svg ellipse': {
-        'vector-effect': 'non-scaling-stroke'
-      },
-      '.display-1,.display-2,.headline-1,.headline-2,.headline-3,.headline-4,.headline-5,.headline-6': {
-        "margin": toRem(2.5) + 'rem 0 ' + toRem(0.8) + 'rem 0',
-        "line-height": "1.2em",
-        "font-weight": "800"
-      },
-      '.absolute.middle-x': {
-        'left': '50%',
-        'transform': 'translateX(-50%)',
-      },
-      '.absolute.middle-y': {
-        'top': '50%',
-        'transform': 'translateY(-50%)',
-      },
-      '.absolute.middle': {
-        'left': '50%',
-        'top': '50%',
-        'transform': 'translate(-50%, -50%)',
-      },
-      '.legend': {
-        'color': settings.textColors.secondary['color']
+      '.wa-field-group-btn.after': {
+        'bottom': '-11px',
       },
       'button, input, select, optgroup, textarea, textarea:focus-visible': {
         'outline': 'none',
@@ -578,41 +568,6 @@ function config(configs, pluginPackage) {
         'background-color': '{{backgroundColor.white}}',
         'background': '#115BB8 linear-gradient(0deg, #115BB8 0%, #115BB8 100%)',
       },
-      '.group .wa-field-group-btn': {
-        'border-radius': '{{borderRadius.full}}',
-        'padding': toRem(0.5) + 'rem',
-        'border': '1px solid '+settings.border.primary['border-color'],
-        'background-color': '{{backgroundColor.white}}',
-        'display': 'none'
-      },
-      '.group:hover .wa-field-group-btn': {
-        'display': 'block'
-      },
-      '.wa-field-group-btn:hover': {
-        'color': '{{backgroundColor.white}}',
-        'background-color': settings.bgColors.primary['background-color'],
-      },
-      '.wa-field-group-btn.before': {
-        'top': '-11px',
-      },
-      '.wa-field-group-btn.after': {
-        'bottom': '-11px',
-      },
-      '.border': {
-        'border': '1px solid '+settings.border.primary['border-color']
-      },
-      '.border-top': {
-        'border-top': '1px solid '+settings.border.primary['border-color']
-      },
-      '.border-bottom,td,th': {
-        'border-bottom': '1px solid '+settings.border.primary['border-color']
-      },
-      '.border-left': {
-        'border-left': '1px solid '+settings.border.primary['border-color']
-      },
-      '.border-right': {
-        'border-right': '1px solid '+settings.border.primary['border-color']
-      },
       'table': {
         'width': '100%',
         'margin': toRem(2.5) + 'rem 0'
@@ -620,19 +575,63 @@ function config(configs, pluginPackage) {
       'td,th': {
         'text-align': 'left',
         'padding': toRem(1) + 'rem'
+      },
+      'xl': {
+        '.card': settings.spacing.xl,
+      },
+      'lg': {
+        '.card': settings.spacing.lg,
+      },
+      'md': {
+        '.card': settings.spacing.md,
+      },
+      'sm': {
+        '.card': settings.spacing.sm,
       }
     });
 
+    let baseA = addClass({
+      'html': {
+        'font-size': (settings.normalizeRemUnit ? "10px" : 'inherit')
+      },
+      'body': {
+        'font-size': toRem(1.8)+'rem',
+        'line-height': '150%',
+        'color': settings.textColors.primary['color']
+      },
+      'svg, svg path, svg circle, svg ellipse': {
+        'vector-effect': 'non-scaling-stroke'
+      },
+      '.display-1,.display-2,.headline-1,.headline-2,.headline-3,.headline-4,.headline-5,.headline-6': {
+        "margin": toRem(2.5) + 'rem 0 ' + toRem(0.8) + 'rem 0',
+        "line-height": "1.2em",
+        "font-weight": "800"
+      },
+      '.absolute.middle-x': {
+        'left': '50%',
+        'transform': 'translateX(-50%)',
+      },
+      '.absolute.middle-y': {
+        'top': '50%',
+        'transform': 'translateY(-50%)',
+      },
+      '.absolute.middle': {
+        'left': '50%',
+        'top': '50%',
+        'transform': 'translate(-50%, -50%)',
+      },
+      '.legend': {
+        'color': settings.textColors.secondary['color']
+      }
+    });
 
     buildFontFace();
 
     addBase(baseA);
-
-    // Defualt Tag values
     addBase(addClass(settings.normalize));
-
+    addBase(addClass(settings.headlines));
+    
     // Add componets
-    addComponents(addClass(settings.headlines));
     addComponents(components);
 
     // Add Break points
