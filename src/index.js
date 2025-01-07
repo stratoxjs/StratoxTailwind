@@ -17,6 +17,7 @@ function config(configs, pluginPackage) {
       text: 'textColors',
       border: 'border'
     },
+    grid: 12,
     rounded: '{{borderRadius.xl}}',
     pad: toRem(1.5) + 'rem',
     mb: toRem(3) + 'rem',
@@ -587,9 +588,10 @@ function config(configs, pluginPackage) {
       },
       'sm': {
         '.card': settings.spacing.sm,
-      }
+      },
+      ...buildGridCssObject()
     });
-
+    
     let baseA = addClass({
       'html': {
         'font-size': (settings.normalizeRemUnit ? "10px" : 'inherit')
@@ -622,8 +624,15 @@ function config(configs, pluginPackage) {
       },
       '.legend': {
         'color': settings.textColors.secondary['color']
-      }
+      },
+
     });
+
+
+    
+
+
+
 
     buildFontFace();
 
@@ -633,6 +642,9 @@ function config(configs, pluginPackage) {
     
     // Add componets
     addComponents(components);
+
+
+
 
     // Add Break points
     addUtilities(getBreakPoints());
@@ -770,6 +782,34 @@ function config(configs, pluginPackage) {
           }
         }
       }
+    }
+
+    /**
+     * Will create a grid after what grid is specified, defualt is 12 grid
+     * @return {object}
+     */
+    function buildGridCssObject() {
+      const grid = {
+        '.grid-container': {
+          'display': 'flex',
+        },
+        '.grid-fixed > *': {
+          'flex-shrink': '0',
+        }
+      }
+      for(let i = 1; i <= settings.grid; i++) {
+        const width = Math.round(((100 / settings.grid) * i) * 1000) / 1000
+
+        grid['.grid-container-'+i] = grid['.grid-container'];
+
+        grid['.grid-container-'+i+' > *'] = {
+          width: +width+"%",
+        };
+        grid['.grid-span-'+i] = {
+          width: +width+"% !important",
+        };
+      }
+      return grid;
     }
 
 
