@@ -86,8 +86,25 @@ module.exports = {
     },
     plugins: [
         require('@stratox/tailwind').config({
-            nomralizeRemUnit: true,
+            normalizeRemUnit: true,
             normalizeSpacing: true
+        })
+    ],
+}
+```
+
+### Change grid from 12 to whatever
+You can change the default 12 grid to whatever you like with:
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+    content: ["./src/**/*.{html,js}"],
+    theme: {
+        extend: {},
+    },
+    plugins: [
+        require('@stratox/tailwind').config({
+            grid: 16 // default value is: 12
         })
     ],
 }
