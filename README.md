@@ -1,9 +1,25 @@
 
 
 # Stratox Tailwind CSS
-Stratox Tailwind is a lightweight design system that makes programming in CSS and HTML enjoyable while optimizing both. It keeps the code minimal by loading only the necessary Tailwind styles and semantical design system classes. The system includes normalizations, typography, wrappers, forms, cards, spacing classes, and more, all tied to media queries for a seamless, responsive design across all devices.
+**Stratox Tailwind** is a design system designed to make working with CSS and HTML both enjoyable and efficient. Built on top of Tailwind CSS, it combines the flexibility of a utility-first approach with a carefully organized layered structure. This layered system keeps the code minimal by loading only the Tailwind styles and semantic design system classes that your project actually uses. Here's how it's structured:
 
-The Stratox Tailwind design system uses rem units in CSS, just like Tailwind, for scalability. However, it simplifies their usage by converting rem units to an intuitive scale: 2.5 rem equals 25 pixels, and .mb-40 represents 40 pixels if **enabled**. This makes achieving pixel-perfect designs effortless for developers without the need for calculations, ensuring consistency for both developers and designers.
+## Layered CSS Approach
+
+1. **Base**  
+   We apply some basic styles to raw HTML elements—things like default typography rules for headings and paragraphs, or default styling for form elements (`input`, `textarea`, etc.). This creates a consistent foundation across the site.
+
+2. **Layout**  
+   We use layout classes for high-level page structure. Classes like `.wrapper` or `.container` help define the overall layout without tying themselves to a specific component.
+
+3. **Components**  
+   We adopt BEM (Block–Element–Modifier) to name our UI building blocks. Examples might include `.card` for a generic card component or `.button` for various button styles. BEM helps us keep things predictable and ensures each component stays self-contained.
+
+4. **Utilities**  
+   We rely heavily on Tailwind’s utility classes here. These are single-purpose helpers—like `.text-center` or `.float-right`—and we sometimes add custom utilities if needed. Tailwind itself is configured to remove anything you don’t use in production, so your final CSS stays lean.
+
+## Tailwind Integration
+
+Our Tailwind plugin is set up so it only includes the parts of Startox that your project actually needs. If you never use a form, for example, the form-related styles won’t appear in your production CSS.
 
 ### [See all the elements here](https://wazabii.se/stratox-tailwind/)
 
