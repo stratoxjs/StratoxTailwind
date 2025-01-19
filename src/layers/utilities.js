@@ -1,3 +1,4 @@
+const {toRem} = require("../helpers");
 
 function utilities(settings) {
 
@@ -72,6 +73,11 @@ function utilities(settings) {
     '.flex--middle': {
       'align-items': 'center',
       'justify-content': 'center'
+    },
+    '.icon': {
+      display: 'inline-block',
+      width: toRem(2.4, settings.naturalCountScaling) + 'rem',
+      height: toRem(2.4, settings.naturalCountScaling) + 'rem'
     }
   }
 }

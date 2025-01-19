@@ -5,10 +5,10 @@ function generics(settings)  {
 
   return {
     'html': {
-      'font-size': (settings.normalizeRemUnit ? "10px" : 'inherit')
+      'font-size': (settings.naturalCountScaling ? "10px" : 'inherit')
     },
     'body': {
-      'font-size': toRem(1.8, settings.normalizeRemUnit) + 'rem',
+      'font-size': toRem(1.8, settings.naturalCountScaling) + 'rem',
       'line-height': '150%',
       'color': settings.textColors.primary['color']
     },
@@ -25,7 +25,7 @@ function generics(settings)  {
       'line-height': '1.3em',
     },
     'blockquote,figcaption': {
-      'margin': toRem(2.5, settings.normalizeRemUnit) + 'rem 0',
+      'margin': toRem(2.5, settings.naturalCountScaling) + 'rem 0',
     },
     'blockquote,pre': {
       'background-color': "{{colors.bg.light|backgroundColor.slate.100}}",
@@ -35,11 +35,11 @@ function generics(settings)  {
       '-webkit-overflow-scrolling': 'touch',
     },
     'pre': {
-      'padding': toRem(1.5, settings.normalizeRemUnit) + 'rem',
+      'padding': toRem(1.5, settings.naturalCountScaling) + 'rem',
     },
     'blockquote': {
       'border-left': "6px solid {{colors.bg.approve|backgroundColor.green.600}}",
-      'padding': '' + toRem(5, settings.normalizeRemUnit) + 'rem ' + toRem(3, settings.normalizeRemUnit) + 'rem ' + toRem(3, settings.normalizeRemUnit) + 'rem ' + toRem(5, settings.normalizeRemUnit) + 'rem',
+      'padding': '' + toRem(5, settings.naturalCountScaling) + 'rem ' + toRem(3, settings.naturalCountScaling) + 'rem ' + toRem(3, settings.naturalCountScaling) + 'rem ' + toRem(5, settings.naturalCountScaling) + 'rem',
       'position': 'relative'
     },
     'blockquote::before': {
@@ -50,7 +50,7 @@ function generics(settings)  {
       'display': 'block',
     },
     'p': {
-      'margin': '0 0 ' + toRem(1.5, settings.normalizeRemUnit) + 'rem 0'
+      'margin': '0 0 ' + toRem(1.5, settings.naturalCountScaling) + 'rem 0'
     },
     '.ingress,.ingress p': {
       'font-size': '{{fontSize.xl}}',
@@ -58,7 +58,7 @@ function generics(settings)  {
     'label,figcaption': {
       'font-weight': 'bold',
       'display': 'block',
-      'margin-bottom': toRem(0.4, settings.normalizeRemUnit) + 'rem'
+      'margin-bottom': toRem(0.4, settings.naturalCountScaling) + 'rem'
     },
     'label *': {
       'font-weight': 'normal',
@@ -67,8 +67,8 @@ function generics(settings)  {
       'color': '{{colors.text.link|backgroundColor.blue.800}}'
     },
     'ul,ol': {
-      'padding-left': toRem(3, settings.normalizeRemUnit) + 'rem',
-      'margin': toRem(2.5, settings.normalizeRemUnit) + 'rem 0',
+      'padding-left': toRem(3, settings.naturalCountScaling) + 'rem',
+      'margin': toRem(2.5, settings.naturalCountScaling) + 'rem 0',
     },
     'ul': {
       'list-style': 'disc',
@@ -90,7 +90,7 @@ function generics(settings)  {
         'line-height': '1.4em',
       },
       'blockquote': {
-        'padding': toRem(5, settings.normalizeRemUnit) + 'rem ' + toRem(1.5, settings.normalizeRemUnit) + 'rem ' + toRem(2, settings.normalizeRemUnit) + 'rem ' + toRem(2, settings.normalizeRemUnit) + 'rem',
+        'padding': toRem(5, settings.naturalCountScaling) + 'rem ' + toRem(1.5, settings.naturalCountScaling) + 'rem ' + toRem(2, settings.naturalCountScaling) + 'rem ' + toRem(2, settings.naturalCountScaling) + 'rem',
       },
     },
     'svg, svg path, svg circle, svg ellipse': {
@@ -159,7 +159,7 @@ function generics(settings)  {
     'input, button, textarea, select, .inp-placeholder': {
       'border': '1px solid ' + settings.border.primary['border-color'],
       'width': '{{width.full}}',
-      'padding': toRem(1.5, settings.normalizeRemUnit) + 'rem ' + toRem(1.5, settings.normalizeRemUnit) + 'rem',
+      'padding': toRem(1.5, settings.naturalCountScaling) + 'rem ' + toRem(1.5, settings.naturalCountScaling) + 'rem',
       'border-radius': settings.rounded,
       'background-color': '{{backgroundColor.white}}',
     },
@@ -198,11 +198,11 @@ function generics(settings)  {
     },
     'table': {
       'width': '100%',
-      'margin': toRem(2.5, settings.normalizeRemUnit) + 'rem 0'
+      'margin': toRem(2.5, settings.naturalCountScaling) + 'rem 0'
     },
     'td,th': {
       'text-align': 'left',
-      'padding': toRem(1, settings.normalizeRemUnit) + 'rem'
+      'padding': toRem(1, settings.naturalCountScaling) + 'rem'
     },
     '.legend': {
       'color': settings.textColors.secondary['color']

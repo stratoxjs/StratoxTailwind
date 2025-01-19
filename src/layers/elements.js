@@ -12,17 +12,17 @@ function elements(settings) {
     '.display-1': {
       'font-size': '{{fontSize.8xl}}',
       'line-height': '1.0em',
-      'margin': '0 0 ' + toRem(1.5, settings.normalizeRemUnit) + 'r, normRemUnitem 0'
+      'margin': '0 0 ' + toRem(1.5, settings.naturalCountScaling) + 'r, normRemUnitem 0'
     },
     '.display-2': {
       'font-size': '{{fontSize.7xl}}',
       'line-height': '1.0em',
-      'margin': '0 0 ' + toRem(1.5, settings.normalizeRemUnit) + 'r, normRemUnitem 0'
+      'margin': '0 0 ' + toRem(1.5, settings.naturalCountScaling) + 'r, normRemUnitem 0'
     },
     'h1, .headline-1': {
       'font-size': '{{fontSize.6xl}}',
       'line-height': '1.0em',
-      'margin': '0 0 ' + toRem(1.5, settings.normalizeRemUnit) + 'rem 0'
+      'margin': '0 0 ' + toRem(1.5, settings.naturalCountScaling) + 'rem 0'
     },
     'h2, .headline-2': {
       'font-size': '{{fontSize.5xl}}',

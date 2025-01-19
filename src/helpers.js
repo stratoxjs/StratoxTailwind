@@ -23,7 +23,7 @@ function toRem(unit, normalizeRemUnit) {
  */
 function spacing(normalizeRemUnit) {
   let i, index = 0, obj = {};
-  for(i = 0; i <= 360; i++) {
+  for(i = 0; i <= 3000; i++) {
     obj[i] = toRem((i)/10, normalizeRemUnit)+"rem";
   }
   return obj;

@@ -1,4 +1,5 @@
 
+
 let plugin, error;
 try {
   plugin = require('tailwindcss/plugin');
@@ -7,7 +8,7 @@ try {
 }
 const defaultTheme = require('tailwindcss/defaultTheme');
 const { deepMerge, toRem, spacing, setDefaultFontFamily } = require('./helpers');
-
+const iconUtilities = require('./iconUtilities');
 const genericsClasses = require("./layers/generics");
 const elementsClasses = require('./layers/elements');
 const objectsClasses = require("./layers/objects");
@@ -16,7 +17,7 @@ const utilitiesClasses = require('./layers/utilities');
 
 function config(configs, pluginPackage) {
 
-  const normRemUnit = configs?.normalizeRemUnit;
+  const normRemUnit = configs?.naturalCountScaling;
 
   const settings = {
     // IF the e.g. color in theme bg does not exits in the config/settings bgColors then it will be pollyfilled.
@@ -165,6 +166,7 @@ function config(configs, pluginPackage) {
       {
         ...addClass(objectsClasses(settings, getScreen)),
         ...addClass(componentsClasses(settings, getScreen)),
+        ...iconUtilities(settings, colors, 'u-'),
         ...getBreakPoints()
       },
       {
@@ -173,7 +175,7 @@ function config(configs, pluginPackage) {
       }
     )
 
-    addUtilities(
+    addComponents(
       {
         ...addClass(utilitiesClasses(settings))
       },
@@ -181,6 +183,7 @@ function config(configs, pluginPackage) {
         layer: 'utilities'
       }
     );
+
 
     function getScreen(key) {
       if (screens[key] !== undefined) {
@@ -330,7 +333,7 @@ function config(configs, pluginPackage) {
         'sm': toRem(38.4, normRemUnit) + 'rem',
         'xs': toRem(32, normRemUnit) + 'rem',
       },
-      spacing: (typeof configs === "object" && configs?.normalizeSpacing ? spacing() : {...defaultTheme.spacing})
+      spacing: (normRemUnit ? spacing(normRemUnit)  : {...defaultTheme.spacing})
     },
   });
 }

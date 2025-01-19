@@ -13,16 +13,16 @@ function components(settings, getScreen) {
       'color': 'inherit',
       'line-height': '1.5em',
       'font-size': '{{fontSize.sm}}',
-      'padding': toRem(1.2, settings.normalizeRemUnit) + 'rem ' + toRem(2.5, settings.normalizeRemUnit) + 'rem',
+      'padding': toRem(1.2, settings.naturalCountScaling) + 'rem ' + toRem(2.5, settings.naturalCountScaling) + 'rem',
       'border-radius': settings.rounded,
       'box-sizing': 'border-box',
     },
     'button.c-button--md, .c-button--md': {
-      'padding': toRem(0.8, settings.normalizeRemUnit) + 'rem ' + toRem(2, settings.normalizeRemUnit) + 'rem',
+      'padding': toRem(0.8, settings.naturalCountScaling) + 'rem ' + toRem(2, settings.naturalCountScaling) + 'rem',
     },
     'button.c-button--sm, .c-button--sm': {
       'font-size': '{{fontSize.xs}}',
-      'padding': toRem(0.8, settings.normalizeRemUnit) + 'rem ' + toRem(2, settings.normalizeRemUnit) + 'rem',
+      'padding': toRem(0.8, settings.naturalCountScaling) + 'rem ' + toRem(2, settings.naturalCountScaling) + 'rem',
       'border-radius': '{{borderRadius.full}}',
     },
     'button:hover, .c-button:hover': {
