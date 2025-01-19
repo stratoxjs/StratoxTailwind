@@ -58,7 +58,6 @@ function objects(settings, getScreen) {
       'display': 'flex',
       'flex-wrap': 'wrap',
       'align-items': 'center',
-      //'justify-content': 'center'
     },
     '.o-scroll-container': {
       'overflow': 'auto',

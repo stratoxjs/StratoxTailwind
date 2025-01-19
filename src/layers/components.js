@@ -5,8 +5,12 @@ const { toRem, spacing } = require('../helpers');
 function components(settings, getScreen) {
 
   return {
-
-    'button, .c-button': {
+    '.c-icon': {
+      display: 'inline-block',
+      width: toRem(2.4, settings.naturalCountScaling) + 'rem',
+      height: toRem(2.4, settings.naturalCountScaling) + 'rem'
+    },
+    '.c-button': {
       'width': 'auto',
       'cursor': 'pointer',
       'display': 'inline-block',
@@ -17,16 +21,27 @@ function components(settings, getScreen) {
       'border-radius': settings.rounded,
       'box-sizing': 'border-box',
     },
-    'button.c-button--md, .c-button--md': {
+    '.c-button--md': {
       'padding': toRem(0.8, settings.naturalCountScaling) + 'rem ' + toRem(2, settings.naturalCountScaling) + 'rem',
     },
-    'button.c-button--sm, .c-button--sm': {
+    '.c-button--sm': {
       'font-size': '{{fontSize.xs}}',
       'padding': toRem(0.8, settings.naturalCountScaling) + 'rem ' + toRem(2, settings.naturalCountScaling) + 'rem',
       'border-radius': '{{borderRadius.full}}',
     },
-    'button:hover, .c-button:hover': {
+    '.c-button:hover': {
       'background-image': 'linear-gradient(rgb(0 0 0/10%) 0 0)',
+    },
+    '.c-slider__button': {
+      'width': toRem(1.4, settings.naturalCountScaling) + 'rem ',
+      'height': toRem(1.4, settings.naturalCountScaling) + 'rem ',
+      'border': '1px solid {{colors.border.secondary}}',
+      'background-color': '{{backgroundColor.white}}',
+      'border-radius': '{{borderRadius.full}}'
+    },
+    '.c-slider__button.js-is-active': {
+      'width': toRem(1.8, settings.naturalCountScaling) + 'rem ',
+      'height': toRem(1.8, settings.naturalCountScaling) + 'rem ',
     }
   }
 };

@@ -69,7 +69,7 @@ function buildIconUtilities(settings, colors, addPrefix = "") {
       const encodedSVG = fs.readFileSync(path.join(encodedIconsDir, file), 'utf8');
       addColorClasses(colors, (colorName, colorValue) => {
         const color = colorValue.startsWith("#") ? `%23${colorValue.replace('#', '')}` : colorValue;
-        classes[`.${prefix}icon.${prefix}icon--${iconName}-${colorName}`] = {
+        classes[`.${prefix}icon--${iconName}-${colorName}`] = {
           background: `url("${encodedSVG.replace(/%230F172A/g, color)}") no-repeat center center`,
           backgroundSize: 'contain'
         };

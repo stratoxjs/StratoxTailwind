@@ -156,7 +156,7 @@ function generics(settings)  {
     'select[multiple]': {
       'background-image': 'none',
     },
-    'input, button, textarea, select, .inp-placeholder': {
+    'input, textarea, select, .inp-placeholder': {
       'border': '1px solid ' + settings.border.primary['border-color'],
       'width': '{{width.full}}',
       'padding': toRem(1.5, settings.naturalCountScaling) + 'rem ' + toRem(1.5, settings.naturalCountScaling) + 'rem',

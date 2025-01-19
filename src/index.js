@@ -43,7 +43,7 @@ function config(configs, pluginPackage) {
         'border-color': "{{colors.border.primary|colors.bg.primary|backgroundColor.blue.800}}",
       },
       secondary: {
-        'color': "inherit",
+        'color': "{{backgroundColor.white}}",
         'background-color': "{{colors.bg.secondary|backgroundColor.slate.200}}",
         'border-color': "{{colors.border.secondary|backgroundColor.slate.300}}"
       },
@@ -166,7 +166,7 @@ function config(configs, pluginPackage) {
       {
         ...addClass(objectsClasses(settings, getScreen)),
         ...addClass(componentsClasses(settings, getScreen)),
-        ...iconUtilities(settings, colors, 'u-'),
+        ...iconUtilities(settings, colors, 'c-'),
         ...getBreakPoints()
       },
       {
