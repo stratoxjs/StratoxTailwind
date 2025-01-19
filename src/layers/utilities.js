@@ -73,6 +73,24 @@ function utilities(settings) {
     '.flex-middle': {
       'align-items': 'center',
       'justify-content': 'center'
+    },
+    '.trans-primary': {
+      'transition': 'all 500ms cubic-bezier(0.455, 0.030, 0.515, 0.955)'
+    },
+    '.trans-secondary': {
+      'transition': 'all 300ms cubic-bezier(0.455, 0.030, 0.515, 0.955)'
+    },
+    '.trans-third': {
+      'transition': 'all 150ms cubic-bezier(0.455, 0.030, 0.515, 0.955)'
+    },
+    '.trans-primary-out': {
+      'transition': 'all 500ms cubic-bezier(0.250, 0.460, 0.450, 0.940)'
+    },
+    '.trans-secondary-out': {
+      'transition': 'all 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940)'
+    },
+    '.trans-third-out': {
+      'transition': 'all 150ms cubic-bezier(0.250, 0.460, 0.450, 0.940)'
     }
   }
 }

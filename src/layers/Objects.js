@@ -54,10 +54,13 @@ function objects(settings, getScreen) {
       'max-width': getScreen('xs')
     },
     '.o-card': settings.spacing.DEFAULT,
-    '.o-card-group': {
+    '.o-card-group,.o-card-wrapper': {
       'display': 'flex',
       'flex-wrap': 'wrap',
       'align-items': 'center',
+    },
+    '.o-card-wrapper': {
+      'justify-content': 'center',
     },
     '.o-scroll-container': {
       'overflow': 'auto',

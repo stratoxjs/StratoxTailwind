@@ -33,15 +33,15 @@ function components(settings, getScreen) {
       'background-image': 'linear-gradient(rgb(0 0 0/10%) 0 0)',
     },
     '.c-slider__button': {
-      'width': toRem(1.4, settings.naturalCountScaling) + 'rem ',
-      'height': toRem(1.4, settings.naturalCountScaling) + 'rem ',
+      'width': toRem(1.6, settings.naturalCountScaling) + 'rem ',
+      'height': toRem(1.6, settings.naturalCountScaling) + 'rem ',
+      'transform': 'scale(0.8)',
       'border': '1px solid {{colors.border.secondary}}',
       'background-color': '{{backgroundColor.white}}',
       'border-radius': '{{borderRadius.full}}'
     },
     '.c-slider__button.js-is-active': {
-      'width': toRem(1.8, settings.naturalCountScaling) + 'rem ',
-      'height': toRem(1.8, settings.naturalCountScaling) + 'rem ',
+      'transform': 'scale(1)',
     }
   }
 };
